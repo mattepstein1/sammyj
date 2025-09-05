@@ -29,12 +29,16 @@ function getNZTTime() {
 
 function getNext3OClockNZT() {
     const now = getNZTTime();
-    let next3 = new Date(now);
-    next3.setHours(15, 0, 0, 0); // 3:00 PM
-    if (now >= next3) {
-        next3.setDate(next3.getDate() + 1);
+    // Find next Friday in NZT
+    let daysUntilFri = (5 - now.getDay() + 7) % 7;
+    let target = new Date(now);
+    if (daysUntilFri === 0 && now.getHours() >= 15) {
+        // If it's Friday and after 3pm NZT, go to next week's Friday
+        daysUntilFri = 7;
     }
-    return next3;
+    target.setDate(now.getDate() + daysUntilFri + 1);
+    target.setHours(15, 0, 0, 0); // 3:00 PM NZT
+    return target;
 }
 
 function updateCountdown() {
@@ -47,10 +51,11 @@ function updateCountdown() {
         setTimeout(updateCountdown, 1000); // Wait for confetti
         return;
     }
-    const hours = Math.floor(diff / 3600000);
+    const days = Math.floor(diff / (24 * 3600000));
+    const hours = Math.floor((diff % (24 * 3600000)) / 3600000);
     const minutes = Math.floor((diff % 3600000) / 60000);
     const seconds = Math.floor((diff % 60000) / 1000);
-    document.getElementById('countdown').textContent = `${hours}h ${minutes}m ${seconds}s`;
+    document.getElementById('countdown').textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     setTimeout(updateCountdown, 1000);
 }
 

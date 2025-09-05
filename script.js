@@ -1,12 +1,12 @@
 // Sliding background images
 const bgImages = [
     './DSCF3525.JPG',
-    './1.jpg',
-    './3.jpg',
-    './4.jpg',
-    './5.jpg',
-    './6.jpg',
-    './7.jpg',
+    './1.JPG',
+    './3.JPG',
+    './4.JPG',
+    './5.JPG',
+    './6.JPG',
+    './7.JPG',
 ];
 let bgIndex = 0;
 function changeBackground() {

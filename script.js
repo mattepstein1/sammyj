@@ -1,3 +1,19 @@
+// Sliding background images
+const bgImages = [
+    './DSCF3525.JPG',
+    './1.jpg',
+    './3.jpg',
+    './4.jpg',
+    './5.jpg',
+    './6.jpg',
+    './7.jpg',
+];
+let bgIndex = 0;
+function changeBackground() {
+    bgIndex = (bgIndex + 1) % bgImages.length;
+    document.querySelector('.main-bg').style.backgroundImage = `url('${bgImages[bgIndex]}')`;
+}
+setInterval(changeBackground, 10000);
 function getNZTTime() {
     // Get current time in NZT (UTC+12 or UTC+13 for daylight saving)
     const now = new Date();
@@ -41,16 +57,16 @@ function updateCountdown() {
 function showConfetti() {
     const confetti = document.getElementById('confetti');
     confetti.innerHTML = '';
-    for (let i = 0; i < 150; i++) {
+    for (let i = 0; i < 400; i++) {
         const div = document.createElement('div');
         div.className = 'confetti';
         div.style.left = Math.random() * 100 + 'vw';
         div.style.top = '-10px';
-        div.style.background = `hsl(${Math.random()*360},100%,50%)`;
-        div.style.width = div.style.height = Math.random() * 8 + 4 + 'px';
+        div.style.background = `hsl(${Math.random()*360},100%,60%)`;
+        div.style.width = div.style.height = Math.random() * 16 + 8 + 'px';
         div.style.position = 'absolute';
         div.style.borderRadius = '50%';
-        div.style.opacity = Math.random();
+        div.style.opacity = 0.7 + Math.random() * 0.3;
         div.style.animation = `confetti-fall ${Math.random()*2+2}s linear forwards`;
         confetti.appendChild(div);
     }

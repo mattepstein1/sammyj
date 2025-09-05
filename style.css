@@ -5,6 +5,10 @@
     z-index: 20;
 }
 
+h1 {
+    font-size: 7rem;
+}
+
 @keyframes party-grow {
     from { transform: scale(1); }
     to { transform: scale(1.2); }
@@ -20,17 +24,18 @@ body, html {
     padding: 0;
 }
 .main-bg {
-    /* Add your background image here */
+    /* Sliding background images */
     background: url('./DSCF3525.JPG') no-repeat center center fixed;
     background-size: cover;
     min-height: 100vh;
+    transition: background-image 1s ease;
 }
 .display-4 {
     color: #fff;
     text-shadow: 2px 2px 8px #333;
 }
 .countdown-timer {
-    font-size: 2.5rem;
+    font-size: 7.5rem;
     font-weight: bold;
     color: #ffd700;
     background: rgba(0,0,0,0.5);

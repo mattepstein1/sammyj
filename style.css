@@ -1,0 +1,49 @@
+/* Party animation for grow/shrink and color change */
+
+.party-animate {
+    animation: party-grow 0.5s infinite alternate, party-color 0.5s infinite alternate !important;
+    z-index: 20;
+}
+
+@keyframes party-grow {
+    from { transform: scale(1); }
+    to { transform: scale(1.2); }
+}
+
+@keyframes party-color {
+    from { filter: hue-rotate(0deg); }
+    to { filter: hue-rotate(180deg); }
+}
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.main-bg {
+    /* Add your background image here */
+    background: url('./DSCF3525.JPG') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+}
+.display-4 {
+    color: #fff;
+    text-shadow: 2px 2px 8px #333;
+}
+.countdown-timer {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffd700;
+    background: rgba(0,0,0,0.5);
+    padding: 20px 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+.confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 10;
+}
